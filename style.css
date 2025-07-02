@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn {
+    background: none;
+    border: none;
+    animation: float 2s ease-in-out infinite;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#btn.falling {
+    animation: fall 0.5s ease-in forwards;
+}
+
+#btn img {
+    width: 300px;
+}
+
+#surpresa {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(250px);
+    transition: all 3.5s ease;
+    width: 250px;
+    z-index: 1;
+}
+
+#surpresa.reveal {
+    opacity: 1;
+    transform: translateY(-100px);
+}
+
+#mensagem {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 3s ease;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff3b3b;
+    z-index: 1;
+}
+
+#mensagem.reveal {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-70px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fall {
+    to { transform: translateY(500px); opacity: 0; }
+}
